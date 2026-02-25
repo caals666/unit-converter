@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <form method="POST" action="/id">
+        <button type="submit" name="tab" value="0">Length</button>
+        <button type="submit" name="tab" value="1">Weight</button>
+        <button type="submit" name="tab" value="2">Temperature</button>
+    </form>
+    <form method="POST" action="/convert">
+    <h3>Enter the <%= type %> to convert</h3>
+    <input type="text" name="value" placeholder="Enter <%= type %>">
+    <h3>Unit to convert from</h3>
+    <input type="text" name="unitfrom">
+    <h3>Unit to convert to</h3>
+    <input type="text" name="unitto">
+    <br>
+    <button type="submit" id="convertButton">Convert</button>
+    </form>
+    <p>Result of your calculation: </p>
+    <br>
+    <p id="result"><%= result %></p>
+    <button>Reset</button>
+</body>
+</html>
