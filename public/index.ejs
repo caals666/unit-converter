@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display:grid;
+            justify-self:center;
+            text-align:center;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <h1>Unit Converter</h1>
@@ -13,18 +47,20 @@
         <button type="submit" name="tab" value="2">Temperature</button>
     </form>
     <form method="POST" action="/convert">
-    <h3>Enter the <%= type %> to convert</h3>
-    <input type="text" name="value" placeholder="Enter <%= type %>">
-    <h3>Unit to convert from</h3>
-    <input type="text" name="unitfrom">
-    <h3>Unit to convert to</h3>
-    <input type="text" name="unitto">
-    <br>
-    <button type="submit" id="convertButton">Convert</button>
+        <h3>Enter the <%= type %> to convert</h3>
+        <input type="text" name="value" placeholder="Enter <%= type %>">
+        <h3>Unit to convert from</h3>
+        <input type="text" name="unitfrom" placeholder="<%= filler %>">
+        <h3>Unit to convert to</h3>
+        <input type="text" name="unitto" placeholder="<%= filler %>">
+        <br>
+        <button type="submit" id="convertButton">Convert</button>
     </form>
     <p>Result of your calculation: </p>
     <br>
     <p id="result"><%= result %></p>
-    <button>Reset</button>
+    <form method="POST" action="/reset">
+        <button type="submit" >Reset</button>
+    </form>
 </body>
 </html>
