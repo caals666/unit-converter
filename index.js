@@ -8,8 +8,8 @@ app.set("views", __dirname + "/public");
 app.use(express.urlencoded({ extended: true }));
 
 const data = {result:"20ft = hahahahcm",tabid:0,type:"length",filler:"ft, cm, m, km, in"};
-const units = [{"ft":3.28, "cm":100, "m":1, "km":0.001, "in":39.37},
-    {"kg":1, "g":1000, "lb":2.20462, "oz":35.274},
+const units = [{"ft":3.28, "cm":100, "m":1, "km":0.001, "in":39.37, "mm":1000, "yd":1.094, "mi":0.000621371},
+    {"kg":1, "g":1000, "lb":2.20462, "oz":35.274, "mg":1000000},
     {"C":0, "F":32, "K":-273.15}
 ];
 
@@ -20,7 +20,7 @@ app.post("/id",(req,res)=>{
     data.result = "20ft = hahahahcm";
     data.tabid = req.body.tab;
     data.type = (data.tabid==0?"length":(data.tabid==1?"weight":"temperature"));
-    data.filler = (data.tabid==0?"ft, cm, m, km, in":(data.tabid==1?"kg, g, lb, oz":"C, F, K"));
+    data.filler = (data.tabid==0?"ft, cm, m, km, in, mm, yd, mi":(data.tabid==1?"kg, g, lb, oz, mg":"C, F, K"));
     res.redirect("/");
 });
 
